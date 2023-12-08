@@ -24,9 +24,15 @@ const Header = () => {
     );
 }
 
-const Container = ({ children, isButton, onClick } : { children: React.ReactNode, isButton?: Boolean, onClick?: React.MouseEvent<HTMLInputElement>}) => {
+interface iContainer {
+    children: React.ReactNode;
+    isButton?: Boolean;
+    onClick?: React.MouseEvent<HTMLInputElement>;
+}
+
+const Container = ({ children, isButton, onClick } : iContainer) => {
     return (
-        <div onClick={() => onClick} className={`bg-white  h-header rounded-xl flex shadow items-center justify-between px-4 lg:px-6 ${isButton ? "cursor-pointer xl:w-[70%] w-1/4 sm:w-1/3 md:w-1/3 lg:w-1/2 2xl:w-full" : "w-3/4 sm:w-2/3 md:w-full lg:w-full xl:w-full"}`}>
+        <div onClick={() => onClick} className={`bg-white h-header rounded-xl flex shadow items-center justify-between px-4 lg:px-6 ${isButton ? "cursor-pointer xl:w-[70%] w-1/4 sm:w-1/3 md:w-1/3 lg:w-1/2 2xl:w-full" : "w-3/4 sm:w-2/3 md:w-full lg:w-full xl:w-full"}`}>
             {children}
         </div>
     )
